@@ -1,6 +1,5 @@
 # inference.py
 import pandas as pd
-import matplotlib.pyplot as plt
 import joblib
 
 import config
@@ -8,7 +7,8 @@ import config
 ################################################################
 ## Model's leaderboard scores:                                ##
 ## Decision Tree: score: 0.60506                              ##
-## Light BGM: score: 0.52300                                  ##
+## Light GBM: score: 0.52300                                  ##
+## Light GBM Optimized: score: 0.49073                        ##
 ################################################################
 
 def handle_negative(preds):
@@ -20,21 +20,19 @@ def handle_negative(preds):
             predictions.append(value)
     return predictions
 
-
+# read losses file and get all models
 df_model_losses = pd.read_csv(config.MODEL_LOSSES_FILE)
 df_test = pd.read_csv(config.TEST_FILE)
-
-# plot all model's losses
 print(df_model_losses)
-plt.bar(df_model_losses['model'], df_model_losses['loss'])
-# plt.show();
 
 # choose the model with lowest loss
 model_name = df_model_losses[df_model_losses['loss'] == df_model_losses['loss'].min()]['model'].values[0]
 print(f"Loading model...{model_name}")
 model = joblib.load(config.MODEL_OUTPUT + f"dt_{model_name}.bin")
 
-print("making predictions...")
+
+## Submission
+print("making submission...")
 preds = model.predict(df_test.values)
 predictions = handle_negative(preds)
 submission = pd.read_csv('../input/sampleSubmission.csv')
