@@ -7,6 +7,7 @@ import joblib
 import optuna
 import pandas as pd
 from sklearn import metrics
+from sklearn.ensemble import VotingRegressor
 
 import config
 import model_dispatcher
@@ -40,7 +41,12 @@ def run(model):
     x_train, y_train, x_valid, y_valid = get_training_data()
 
     # model
-    reg = model_dispatcher.models[model]
+    # reg = model_dispatcher.models[model]
+
+    ## Voting regressor
+    lgmb = model_dispatcher.models['lgbm-optimized']
+    decision_tree = model_dispatcher.models['decision_tree']
+    reg = VotingRegressor(estimators=[('lgbm', lgmb), ('rf', decision_tree)])
 
     # fit the model
     print("fitting the data....")
@@ -104,4 +110,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     run(model=args.model)
-    optimize_model(model_name=args.model)
+    # optimize_model(model_name=args.model)

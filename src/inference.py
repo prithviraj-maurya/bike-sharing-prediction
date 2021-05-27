@@ -9,6 +9,7 @@ import config
 ## Decision Tree: score: 0.60506                              ##
 ## Light GBM: score: 0.52300                                  ##
 ## Light GBM Optimized: score: 0.49073                        ##
+## Voting Regressor: score: 0.48968                           ##
 ################################################################
 
 def handle_negative(preds):
