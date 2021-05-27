@@ -1,7 +1,6 @@
 # inference.py
 import pandas as pd
 import matplotlib.pyplot as plt
-from pandas.io.parsers import read_csv
 import joblib
 
 import config
@@ -9,6 +8,7 @@ import config
 ################################################################
 ## Model's leaderboard scores:                                ##
 ## Decision Tree: score: 0.60506                              ##
+## Light BGM: score: 0.52300                                  ##
 ################################################################
 
 def handle_negative(preds):
