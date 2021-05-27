@@ -1,15 +1,19 @@
 # model_dispatcher.py
+import xgboost as xgb
 from sklearn import linear_model
 from sklearn import svm
 from sklearn import tree
 from lightgbm import LGBMRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 
 models = {
     'linear_regression': linear_model.LinearRegression(),
     'ridge': linear_model.Ridge(alpha=0.5),
     'svm': svm.SVR(),
     'decision_tree': tree.DecisionTreeRegressor(),
+    'gbr': GradientBoostingRegressor(),
     'lgbm': LGBMRegressor(),
+    'xgb': xgb.XGBRegressor(),
     'lgbm-optimized': LGBMRegressor(
         lambda_l1= 3.112583800758401e-07,
         lambda_l2= 2.332475569183464e-05,

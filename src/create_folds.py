@@ -7,12 +7,18 @@ train_processed = pd.read_csv(dir + 'train_processed.csv')
 test_processed = pd.read_csv(dir + 'test_processed.csv')
 train_normalised = pd.read_csv(dir + 'train_normalised.csv')
 test_normalised = pd.read_csv(dir + 'test_normalised.csv')
+train_featured = pd.read_csv(dir + 'train_featured.csv')
+test_featured = pd.read_csv(dir + 'test_featured.csv')
 
 normalise = False
+featured = True
 
 if normalise:
     train = train_normalised.copy()
     test = test_normalised.copy()
+if featured:
+    train = train_featured.copy()
+    test = test_featured.copy()    
 else:
     train = train_processed.copy()
     test = test_processed.copy()

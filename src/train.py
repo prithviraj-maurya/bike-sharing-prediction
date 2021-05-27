@@ -43,7 +43,7 @@ def run(model):
     # model
     # reg = model_dispatcher.models[model]
 
-    ## Voting regressor
+    # Voting regressor
     lgmb = model_dispatcher.models['lgbm-optimized']
     decision_tree = model_dispatcher.models['decision_tree']
     reg = VotingRegressor(estimators=[('lgbm', lgmb), ('rf', decision_tree)])
@@ -78,7 +78,6 @@ def objective(trial, model_name):
     
     reg = model_dispatcher.models[model_name]
     reg.set_params(**param)
-    print(reg)
     reg.fit(x_train, y_train)
     # predicitons
     predictions = reg.predict(x_valid)

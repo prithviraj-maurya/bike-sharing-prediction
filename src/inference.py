@@ -10,6 +10,7 @@ import config
 ## Light GBM: score: 0.52300                                  ##
 ## Light GBM Optimized: score: 0.49073                        ##
 ## Voting Regressor: score: 0.48968                           ##
+## Voting Regressor Featured(Datetime): score: 0.54566        ##
 ################################################################
 
 def handle_negative(preds):
@@ -23,6 +24,7 @@ def handle_negative(preds):
 
 # read losses file and get all models
 df_model_losses = pd.read_csv(config.MODEL_LOSSES_FILE)
+# df_test = pd.read_csv('../input/test_featured.csv')
 df_test = pd.read_csv(config.TEST_FILE)
 print(df_model_losses)
 
