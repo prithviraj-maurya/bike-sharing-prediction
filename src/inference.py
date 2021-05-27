@@ -24,8 +24,8 @@ def handle_negative(preds):
 
 # read losses file and get all models
 df_model_losses = pd.read_csv(config.MODEL_LOSSES_FILE)
-# df_test = pd.read_csv('../input/test_featured.csv')
-df_test = pd.read_csv(config.TEST_FILE)
+df_test = pd.read_csv('../input/test_featured.csv')
+# df_test = pd.read_csv(config.TEST_FILE)
 print(df_model_losses)
 
 # choose the model with lowest loss

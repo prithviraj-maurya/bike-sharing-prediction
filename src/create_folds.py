@@ -32,7 +32,10 @@ print(f"Test {test.shape}")
 ## Day 16 - Day 19 (training data has till date 19) will be validation data
 train_fold = pd.DataFrame(columns=train.columns)
 valid_fold = pd.DataFrame(columns=train.columns)
-years = [2011, 2012]
+if featured:
+    years = [0, 1]
+else:    
+    years = [2011, 2012]
 months = list(range(1, 13))
 
 for year in years:

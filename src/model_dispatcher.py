@@ -15,13 +15,13 @@ models = {
     'lgbm': LGBMRegressor(),
     'xgb': xgb.XGBRegressor(),
     'lgbm-optimized': LGBMRegressor(
-        lambda_l1= 3.112583800758401e-07,
-        lambda_l2= 2.332475569183464e-05,
-        num_leaves= 208,
-        feature_fraction= 0.9996806751215828,
-        bagging_fraction= 0.8231425570516924,
-        bagging_freq= 6,
-        min_child_samples= 7
+        lambda_l1= 1.2442475967572832,
+        lambda_l2= 1.0232775643501282e-06,
+        num_leaves= 216,
+        feature_fraction= 0.998953748626822,
+        bagging_fraction= 0.9014682923487376,
+        bagging_freq= 3,
+        min_child_samples= 5,
     )
 }
 
